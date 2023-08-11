@@ -4,15 +4,15 @@
 <div align="center">
     <h1 align="center">YooKassa API Golang Client Library
     </h1>
-    <h3 align="center">Клиент для работы с платежами по <a href="https://yookassa.ru/developers/api">API ЮKassa</a>
+    <h3 align="center">This product is used for managing payments under <a href="https://yookassa.ru/developers/api?lang=en">The YooKassa API</a>
     </h3>
     <p align="center">
-        Russian | <a href="README.en.md">English</a> 
+        <a href="README.md">Russian</a> | English 
     </p>
 </div>
 
-### Установка
+### Installation
 `go get github.com/rvinnie/yookassa-sdk-go`
 
-### Начало работы
+### Commencing work
 ...
