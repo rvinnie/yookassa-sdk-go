@@ -1,4 +1,4 @@
-[![Golang](https://img.shields.io/badge/Go-v1.20-EEEEEE?logo=go&logoColor=white&labelColor=00ADD8)](https://go.dev/)
+[![Golang](https://img.shields.io/badge/Go-v1.19-EEEEEE?logo=go&logoColor=white&labelColor=00ADD8)](https://go.dev/)
 [![License](https://img.shields.io/pypi/l/yookassa.svg)](LICENSE)
 
 <div align="center">
@@ -15,4 +15,16 @@
 `go get github.com/rvinnie/yookassa-sdk-go`
 
 ### Commencing work
-...
+1. Import module
+```golang
+import "github.com/rvinnie/yookassa-sdk-go"
+```
+2. Configure a Client
+```golang
+import "github.com/rvinnie/yookassa-sdk-go"
+
+func main() {
+    client := yookassa.NewClient('<Account Id>', '<Secret Key>')	
+}
+```
+3. Call the required API method. [More details in our documentation for the YooKassa API](https://yookassa.ru/developers/api?lang=en)

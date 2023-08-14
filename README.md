@@ -1,4 +1,4 @@
-[![Golang](https://img.shields.io/badge/Go-v1.20-EEEEEE?logo=go&logoColor=white&labelColor=00ADD8)](https://go.dev/)
+[![Golang](https://img.shields.io/badge/Go-v1.19-EEEEEE?logo=go&logoColor=white&labelColor=00ADD8)](https://go.dev/)
 [![License](https://img.shields.io/pypi/l/yookassa.svg)](LICENSE)
 
 <div align="center">
@@ -15,4 +15,16 @@
 `go get github.com/rvinnie/yookassa-sdk-go`
 
 ### Начало работы
-...
+1. Импортируйте модуль
+```golang
+import "github.com/rvinnie/yookassa-sdk-go"
+```
+2. Установите данные для конфигурации
+```golang
+import "github.com/rvinnie/yookassa-sdk-go"
+
+func main() {
+    client := yookassa.NewClient('<Идентификатор магазина>', '<Секретный ключ>')	
+}
+```
+3. Вызовите нужный метод API. [Подробнее в документации к API ЮKassa](https://yookassa.ru/developers/api)
