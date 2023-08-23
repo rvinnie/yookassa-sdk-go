@@ -1,4 +1,4 @@
-package payment
+package yoopayment
 
 // Payment authorization details.
 type AuthorizationDetails struct {

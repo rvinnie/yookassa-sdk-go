@@ -1,4 +1,4 @@
-package payment
+package yoopayment
 
 // The Deal within which the payment is being carried out.
 type Deal struct {

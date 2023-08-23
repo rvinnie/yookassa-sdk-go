@@ -1,4 +1,4 @@
-package payment
+package yoopayment
 
 // Commentary to the canceled status: who and why canceled the payment.
 type CancellationDetails struct {

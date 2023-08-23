@@ -1,4 +1,4 @@
-package payment
+package yoopayment
 
 type Recipient struct {
 	// Store's ID in YooMoney.

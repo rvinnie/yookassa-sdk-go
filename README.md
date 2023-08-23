@@ -28,3 +28,12 @@ func main() {
 }
 ```
 3. Вызовите нужный метод API. [Подробнее в документации к API ЮKassa](https://yookassa.ru/developers/api)
+
+## Примеры использования SDK
+#### [Настройки SDK API ЮKassa](https://github.com/rvinnie/yookassa-sdk-go/docs/examples/01-configuration.md)
+* [Аутентификация](https://github.com/rvinnie/yookassa-sdk-go/docs/examples/01-configuration.md#Аутентификация)
+#### [Работа с платежами](https://github.com/rvinnie/yookassa-sdk-go/docs/examples/01-payments.md)
+* [Запрос на создание платежа](https://github.com/rvinnie/yookassa-sdk-go/docs/examples/02-payments.md#Запрос-на-создание-платежа)
+* [Запрос на подтверждение платежа](https://github.com/rvinnie/yookassa-sdk-go/docs/examples/02-payments.md#Запрос-на-подтверждение-платежа)
+* [Запрос на отмену незавершенного платежа](https://github.com/rvinnie/yookassa-sdk-go/docs/examples/02-payments.md#Запрос-на-отмену-незавершенного-платежа)
+* [Получить информацию о платеже](https://github.com/rvinnie/yookassa-sdk-go/docs/examples/02-payments.md#Получить-информацию-о-платеже)

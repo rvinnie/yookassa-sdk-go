@@ -1,4 +1,4 @@
-package payment
+package yoopayment
 
 // Card details.
 type Card struct {

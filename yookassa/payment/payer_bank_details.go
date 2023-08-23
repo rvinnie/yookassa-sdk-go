@@ -1,4 +1,4 @@
-package payment
+package yoopayment
 
 // Banking details of the payer (legal entity or sole proprietor).
 type PayerBankDetails struct {

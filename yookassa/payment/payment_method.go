@@ -1,4 +1,4 @@
-package payment
+package yoopayment
 
 type PaymentMethodType string
 

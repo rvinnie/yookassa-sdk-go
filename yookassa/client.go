@@ -15,7 +15,6 @@ type Client struct {
 	client    http.Client
 	accountId string
 	secretKey string
-	// AuthToken string // oauth
 }
 
 func NewClient(accountId string, secretKey string) *Client {

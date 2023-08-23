@@ -1,4 +1,4 @@
-package payment
+package yoopayment
 
 // Information about money distribution:
 // the amounts of transfers and the stores to be transferred to.

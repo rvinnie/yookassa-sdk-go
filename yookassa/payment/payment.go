@@ -1,4 +1,4 @@
-package payment
+package yoopayment
 
 import "time"
 
@@ -18,6 +18,9 @@ type Payment struct {
 
 	// Amount of payment to be received by the store: the amount value minus the YooMoney commission.
 	IncomeAmount *Amount `json:"income_amount,omitempty"`
+
+	// Capture defines automatic acceptance of payment
+	Capture bool `json:"capture,omitempty"`
 
 	// Description of the transaction (maximum 128 characters) displayed in your YooMoney
 	// Merchant Profile, and shown to the user during checkout. For example,

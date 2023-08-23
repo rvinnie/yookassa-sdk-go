@@ -1,4 +1,4 @@
-package payment
+package yoopayment
 
 // Amount of Payment. Sometimes YooMoney's partners charge additional commission
 // from the users that is not included in this amount.
