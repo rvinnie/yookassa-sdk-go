@@ -31,7 +31,7 @@ func (p *PaymentHandler) CapturePayment(payment *yoopayment.Payment) (*yoopaymen
 	}
 
 	captureRequest := fmt.Sprintf("%s/%s/%s", PaymentEndpoint, payment.ID, CaptureEndpoint)
-	resp, err := p.client.makeRequest(http.MethodPost, captureRequest, paymentJson)
+	resp, err := p.client.makeRequest(http.MethodPost, captureRequest, paymentJson, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -56,7 +56,7 @@ func (p *PaymentHandler) CapturePayment(payment *yoopayment.Payment) (*yoopaymen
 func (p *PaymentHandler) CancelPayment(paymentId string) (*yoopayment.Payment, error) {
 	cancelRequest := fmt.Sprintf("%s/%s/%s", PaymentEndpoint, paymentId, CancelEndpoint)
 	fmt.Println(cancelRequest)
-	resp, err := p.client.makeRequest(http.MethodPost, cancelRequest, nil)
+	resp, err := p.client.makeRequest(http.MethodPost, cancelRequest, nil, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -84,7 +84,7 @@ func (p *PaymentHandler) CreatePayment(payment *yoopayment.Payment) (*yoopayment
 		return nil, err
 	}
 
-	resp, err := p.client.makeRequest(http.MethodPost, PaymentEndpoint, paymentJson)
+	resp, err := p.client.makeRequest(http.MethodPost, PaymentEndpoint, paymentJson, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +121,7 @@ func (p *PaymentHandler) CreatePaymentLink(payment *yoopayment.Payment) (string,
 
 func (p *PaymentHandler) FindPayment(id string) (*yoopayment.Payment, error) {
 	endpoint := fmt.Sprintf("%s/%s", PaymentEndpoint, id)
-	resp, err := p.client.makeRequest(http.MethodGet, endpoint, nil)
+	resp, err := p.client.makeRequest(http.MethodGet, endpoint, nil, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -141,6 +141,47 @@ func (p *PaymentHandler) FindPayment(id string) (*yoopayment.Payment, error) {
 		return nil, err
 	}
 	return paymentResponse, nil
+}
+
+func (p *PaymentHandler) FindPayments(filter *yoopayment.PaymentListFilter) (*yoopayment.PaymentList, error) {
+	filterJson, err := json.Marshal(filter)
+	if err != nil {
+		return nil, err
+	}
+
+	var filterMap map[string]interface{}
+	err = json.Unmarshal(filterJson, &filterMap)
+	if err != nil {
+		return nil, err
+	}
+
+	resp, err := p.client.makeRequest(http.MethodGet, PaymentEndpoint, nil, filterMap)
+	if err != nil {
+		return nil, err
+	}
+
+	if resp.StatusCode != http.StatusOK {
+		var respError error
+		respError, err = yooerror.GetError(resp.Body)
+		if err != nil {
+			return nil, err
+		}
+
+		return nil, respError
+	}
+
+	var responseBytes []byte
+	responseBytes, err = io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, err
+	}
+
+	paymentsResponse := yoopayment.PaymentList{}
+	err = json.Unmarshal(responseBytes, &paymentsResponse)
+	if err != nil {
+		return nil, err
+	}
+	return &paymentsResponse, nil
 }
 
 func (p *PaymentHandler) ParsePaymentLink(payment *yoopayment.Payment) (string, error) {
