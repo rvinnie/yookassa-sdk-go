@@ -25,7 +25,7 @@ func NewClient(accountId string, secretKey string) *Client {
 	}
 }
 
-func (c *Client) makeRequest(method string, endpoint string, body []byte) (*http.Response, error) {
+func (c *Client) makeRequest(method string, endpoint string, body []byte, params map[string]interface{}) (*http.Response, error) {
 	uri := fmt.Sprintf("%s%s", BaseURL, endpoint)
 
 	req, err := http.NewRequest(method, uri, bytes.NewBuffer(body))
@@ -39,6 +39,14 @@ func (c *Client) makeRequest(method string, endpoint string, body []byte) (*http
 	}
 
 	req.SetBasicAuth(c.accountId, c.secretKey)
+
+	if params != nil {
+		q := req.URL.Query()
+		for paramName, paramVal := range params {
+			q.Add(paramName, fmt.Sprintf("%v", paramVal))
+		}
+		req.URL.RawQuery = q.Encode()
+	}
 
 	resp, err := c.client.Do(req)
 	if err != nil {
