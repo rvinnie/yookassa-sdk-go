@@ -31,11 +31,11 @@ func main() {
 
 ## Examples of using the API SDK
 #### [YooKassa SDK Settings](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.md)
-* [Authentication](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.md#Аутентификация)
-* [Getting information about the store](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.md#Получение-информации-о-магазине)
+* [Authentication](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.en.md#Authentication)
+* [Getting information about the store](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.en.md#Getting-information-about-the-store)
 #### [Working with payments](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-payments.md)
-* [Request to create a payment](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Запрос-на-создание-платежа)
-* [Request for payment confirmation](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Запрос-на-подтверждение-платежа)
-* [Request to cancel an incomplete payment](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Запрос-на-отмену-незавершенного-платежа)
-* [Get payment information](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Получить-информацию-о-платеже)
-* [Get a list of payments with filtering](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Получить-список-платежей-с-фильтрацией)
+* [Request to create a payment](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.en.md#Request-to-create-a-payment)
+* [Request for payment confirmation](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.en.md#Request-for-payment-confirmation)
+* [Request to cancel an incomplete payment](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.en.md#Request-to-cancel-an-incomplete-payment)
+* [Get payment information](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.en.md#Get-payment-information)
+* [Get a list of payments with filtering](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.en.md#Get-a-list-of-payments-with-filtering)
