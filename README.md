@@ -32,6 +32,7 @@ func main() {
 ## Примеры использования SDK
 #### [Настройки SDK API ЮKassa](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.md)
 * [Аутентификация](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.md#Аутентификация)
+* [Получение информации о магазине](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.md#Получение-информации-о-магазине)
 #### [Работа с платежами](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-payments.md)
 * [Запрос на создание платежа](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Запрос-на-создание-платежа)
 * [Запрос на подтверждение платежа](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Запрос-на-подтверждение-платежа)

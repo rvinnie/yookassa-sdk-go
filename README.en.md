@@ -28,3 +28,14 @@ func main() {
 }
 ```
 3. Call the required API method. [More details in our documentation for the YooKassa API](https://yookassa.ru/developers/api?lang=en)
+
+## Examples of using the API SDK
+#### [YooKassa SDK Settings](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.md)
+* [Authentication](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.md#Аутентификация)
+* [Getting information about the store](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.md#Получение-информации-о-магазине)
+#### [Working with payments](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-payments.md)
+* [Request to create a payment](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Запрос-на-создание-платежа)
+* [Request for payment confirmation](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Запрос-на-подтверждение-платежа)
+* [Request to cancel an incomplete payment](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Запрос-на-отмену-незавершенного-платежа)
+* [Get payment information](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Получить-информацию-о-платеже)
+* [Get a list of payments with filtering](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Получить-список-платежей-с-фильтрацией)
