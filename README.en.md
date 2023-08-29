@@ -30,10 +30,10 @@ func main() {
 3. Call the required API method. [More details in our documentation for the YooKassa API](https://yookassa.ru/developers/api?lang=en)
 
 ## Examples of using the API SDK
-#### [YooKassa SDK Settings](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.md)
+#### [YooKassa SDK Settings](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.en.md)
 * [Authentication](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.en.md#Authentication)
 * [Getting information about the store](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-configuration.en.md#Getting-information-about-the-store)
-#### [Working with payments](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/01-payments.md)
+#### [Working with payments](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.en.md)
 * [Request to create a payment](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.en.md#Request-to-create-a-payment)
 * [Request for payment confirmation](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.en.md#Request-for-payment-confirmation)
 * [Request to cancel an incomplete payment](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.en.md#Request-to-cancel-an-incomplete-payment)
