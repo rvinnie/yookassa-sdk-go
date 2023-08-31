@@ -10,5 +10,5 @@ type PayoutBalance struct {
 	// Three-letter currency code in ISO-4217 format.
 	// Example: RUB. Must match the subaccount currency (recipient.gateway_id) if you separate payment flows,
 	// and the account currency (shopId in your account) if you don't.
-	Currency string `json:",omitempty"`
+	Currency string `json:"currency,omitempty"`
 }
