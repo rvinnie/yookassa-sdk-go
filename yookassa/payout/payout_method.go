@@ -1,3 +1,4 @@
+// Package yoopayout describes all the necessary entities for working with YooMoney Payouts.
 package yoopayout
 
 type PayoutMethodType string

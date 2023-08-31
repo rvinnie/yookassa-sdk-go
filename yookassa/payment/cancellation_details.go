@@ -1,3 +1,4 @@
+// Package yoopayment describes all the necessary entities for working with YooMoney Payments.
 package yoopayment
 
 // Commentary to the canceled status: who and why canceled the payment.

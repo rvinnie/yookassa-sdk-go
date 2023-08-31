@@ -1,3 +1,4 @@
+// Package yookassa implements all the necessary methods for working with YooMoney.
 package yookassa
 
 import (
@@ -12,6 +13,7 @@ const (
 	MeEndpoint = "me"
 )
 
+// SettingsHandler works with client's account settings.
 type SettingsHandler struct {
 	client *Client
 }
@@ -20,6 +22,7 @@ func NewSettingsHandler(client *Client) *SettingsHandler {
 	return &SettingsHandler{client: client}
 }
 
+// GetAccountSettings gets the client account settings.
 func (s *SettingsHandler) GetAccountSettings(OnBehalfOf *string) (*yoosettings.Settings, error) {
 	var params map[string]interface{}
 	if OnBehalfOf != nil {

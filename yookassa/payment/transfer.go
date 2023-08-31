@@ -1,3 +1,4 @@
+// Package yoopayment describes all the necessary entities for working with YooMoney Payments.
 package yoopayment
 
 // Information about money distribution:

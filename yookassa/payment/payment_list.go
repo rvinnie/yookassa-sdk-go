@@ -1,3 +1,4 @@
+// Package yoopayment describes all the necessary entities for working with YooMoney Payments.
 package yoopayment
 
 // PaymentList contains list of payments. Data can be filtered.

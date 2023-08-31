@@ -1,3 +1,4 @@
+// Package yoopayment describes all the necessary entities for working with YooMoney Payments.
 package yoopayment
 
 // Amount of Payment. Sometimes YooMoney's partners charge additional commission
