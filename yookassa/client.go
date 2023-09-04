@@ -1,3 +1,4 @@
+// Package yookassa implements all the necessary methods for working with YooMoney.
 package yookassa
 
 import (
@@ -11,6 +12,7 @@ const (
 	BaseURL = "https://api.yookassa.ru/v3/"
 )
 
+// Client works with YooMoney API.
 type Client struct {
 	client    http.Client
 	accountId string

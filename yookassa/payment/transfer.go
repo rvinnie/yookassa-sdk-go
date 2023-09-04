@@ -1,3 +1,4 @@
+// Package yoopayment describes all the necessary entities for working with YooMoney Payments.
 package yoopayment
 
 import "github.com/rvinnie/yookassa-sdk-go/yookassa/common"

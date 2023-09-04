@@ -1,3 +1,4 @@
+// Package yookassa implements all the necessary methods for working with YooMoney.
 package yookassa
 
 import (
@@ -16,6 +17,7 @@ const (
 	CancelEndpoint  = "cancel"
 )
 
+// PaymentHandler works with requests related to Payments.
 type PaymentHandler struct {
 	client *Client
 }
@@ -24,6 +26,7 @@ func NewPaymentHandler(client *Client) *PaymentHandler {
 	return &PaymentHandler{client: client}
 }
 
+// CapturePayment confirms payment, accepts and returns the Payment entity.
 func (p *PaymentHandler) CapturePayment(payment *yoopayment.Payment) (*yoopayment.Payment, error) {
 	paymentJson, err := json.MarshalIndent(payment, "", "\t")
 	if err != nil {
@@ -53,6 +56,7 @@ func (p *PaymentHandler) CapturePayment(payment *yoopayment.Payment) (*yoopaymen
 	return paymentResponse, nil
 }
 
+// CancelPayment cancel payment by ID.
 func (p *PaymentHandler) CancelPayment(paymentId string) (*yoopayment.Payment, error) {
 	cancelRequest := fmt.Sprintf("%s/%s/%s", PaymentEndpoint, paymentId, CancelEndpoint)
 	fmt.Println(cancelRequest)
@@ -78,6 +82,7 @@ func (p *PaymentHandler) CancelPayment(paymentId string) (*yoopayment.Payment, e
 	return paymentResponse, nil
 }
 
+// CreatePayment creates a payment, accepts and returns the Payment entity.
 func (p *PaymentHandler) CreatePayment(payment *yoopayment.Payment) (*yoopayment.Payment, error) {
 	paymentJson, err := json.MarshalIndent(payment, "", "\t")
 	if err != nil {
@@ -110,6 +115,7 @@ func (p *PaymentHandler) CreatePayment(payment *yoopayment.Payment) (*yoopayment
 	return paymentResponse, nil
 }
 
+// CreatePaymentLink creates a payment link, accepts Payment entity, returns the link.
 func (p *PaymentHandler) CreatePaymentLink(payment *yoopayment.Payment) (string, error) {
 	pay, err := p.CreatePayment(payment)
 	if err != nil {
@@ -119,6 +125,7 @@ func (p *PaymentHandler) CreatePaymentLink(payment *yoopayment.Payment) (string,
 	return p.ParsePaymentLink(pay)
 }
 
+// FindPayment find a payment by ID returns the Payment entity.
 func (p *PaymentHandler) FindPayment(id string) (*yoopayment.Payment, error) {
 	endpoint := fmt.Sprintf("%s/%s", PaymentEndpoint, id)
 	resp, err := p.client.makeRequest(http.MethodGet, endpoint, nil, nil)
@@ -143,6 +150,7 @@ func (p *PaymentHandler) FindPayment(id string) (*yoopayment.Payment, error) {
 	return paymentResponse, nil
 }
 
+// FindPayments find payments by filter and returns the list of payments.
 func (p *PaymentHandler) FindPayments(filter *yoopayment.PaymentListFilter) (*yoopayment.PaymentList, error) {
 	filterJson, err := json.Marshal(filter)
 	if err != nil {
@@ -184,6 +192,7 @@ func (p *PaymentHandler) FindPayments(filter *yoopayment.PaymentListFilter) (*yo
 	return &paymentsResponse, nil
 }
 
+// ParsePaymentLink retrieves a link to the Payment from the Payment entity.
 func (p *PaymentHandler) ParsePaymentLink(payment *yoopayment.Payment) (string, error) {
 	if payment == nil || payment.Confirmation == nil {
 		return "", errors.New("empty confirmation url")

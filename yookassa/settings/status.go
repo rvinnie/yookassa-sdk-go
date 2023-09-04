@@ -1,3 +1,4 @@
+// Package yoosettings describes all the necessary entities for working with YooMoney Settings.
 package yoosettings
 
 type Status string
