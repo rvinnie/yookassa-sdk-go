@@ -9,7 +9,7 @@ import (
 // Settings object contains relevant information about the configuration of the store or gateway.
 type Settings struct {
 	// Store's or gateway's ID in YooMoney.
-	AccountId string `json:"account_id,omitempty"`
+	AccountID string `json:"account_id,omitempty"`
 
 	// Store's or gateway status.
 	Status *Status `json:"status,omitempty"`

@@ -30,9 +30,9 @@ func main() {
     // Create a yookassa client by specifying the store ID and secret key
     yooclient := yookassa.NewClient('<Store ID>', '<Secret key>')
     // Create a settings handler
-	settingsHandler := yookassa.NewSettingsHandler(yooclient)
+    settingsHandler := yookassa.NewSettingsHandler(yooclient)
     // Get information about store or gateway settings
-	settings, _ := settingsHandler.GetAccountSettings(nil)
+    settings, _ := settingsHandler.GetAccountSettings(nil)
 }
 ```
 As a result, we will see something like this:

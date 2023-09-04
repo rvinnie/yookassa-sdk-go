@@ -7,7 +7,7 @@ import "github.com/rvinnie/yookassa-sdk-go/yookassa/common"
 type Source struct {
 	// ID of the store in favor of which you're accepting the receipt.
 	// Provided by YooMoney, displayed in the Sellers section of your Merchant Profile (shopId column).
-	AccountId string `json:"account_id,omitempty"`
+	AccountID string `json:"account_id,omitempty"`
 
 	// Refund amount.
 	Amount *yoocommon.Amount `json:"amount,omitempty"`

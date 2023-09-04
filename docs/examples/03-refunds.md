@@ -34,7 +34,7 @@ func main() {
     refundHandler := yookassa.NewRefundHandler(client)
     // Создаем возврат
     refund, err := refundHandler.CreateRefund(&yoorefund.Refund{
-        PaymentId: "2c79414f-000f-5100-9000-1d082dd142ea",
+        PaymentID: "2c79414f-000f-5100-9000-1d082dd142ea",
         Amount: &yoocommon.Amount{
             Value:    "123",
             Currency: "RUB",

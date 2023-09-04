@@ -10,10 +10,10 @@ import (
 // The object is sent in response to any refund-related requests.
 type Refund struct {
 	// Refund's ID in YooMoney.
-	Id string `json:"id,omitempty"`
+	ID string `json:"id,omitempty"`
 
 	// Payment ID in YooMoney.
-	PaymentId string `json:"payment_id,omitempty"`
+	PaymentID string `json:"payment_id,omitempty"`
 
 	// Refund status. Possible values: pending, succeeded, and canceled.
 	Status Status `json:"status,omitempty"`
