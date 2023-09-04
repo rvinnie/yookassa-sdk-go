@@ -1,4 +1,4 @@
-package yoopayment
+package yoocommon
 
 // Information about money distribution.
 type Settlement struct {

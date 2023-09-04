@@ -1,6 +1,9 @@
 package yoopayment
 
-import "time"
+import (
+	"github.com/rvinnie/yookassa-sdk-go/yookassa/common"
+	"time"
+)
 
 // The Payment object contains all currently relevant information
 // about the payment. The object is generated during creation of a payment,
@@ -10,14 +13,14 @@ type Payment struct {
 	ID string `json:"id,omitempty"`
 
 	// Payment Status. Possible values: pending, waiting_for_capture, succeeded, and canceled.
-	Status *Status `json:"status,omitempty"`
+	Status Status `json:"status,omitempty"`
 
 	// Payment Amount. Sometimes YooMoney's partners charge additional
 	// commission from the users that is not included in this amount.
-	Amount *Amount `json:"amount,omitempty"`
+	Amount *yoocommon.Amount `json:"amount,omitempty"`
 
 	// Amount of payment to be received by the store: the amount value minus the YooMoney commission.
-	IncomeAmount *Amount `json:"income_amount,omitempty"`
+	IncomeAmount *yoocommon.Amount `json:"income_amount,omitempty"`
 
 	// Capture defines automatic acceptance of payment
 	Capture bool `json:"capture,omitempty"`
@@ -55,7 +58,7 @@ type Payment struct {
 	Test bool `json:"test,omitempty"`
 
 	// The amount refunded to the user. Specified if the payment has successful refunds.
-	RefundedAmount *Amount `json:"refunded_amount,omitempty"`
+	RefundedAmount *yoocommon.Amount `json:"refunded_amount,omitempty"`
 
 	// The attribute of a paid order.
 	Paid bool `json:"paid,omitempty"`
@@ -64,7 +67,7 @@ type Payment struct {
 	Refundable bool `json:"refundable,omitempty"`
 
 	// Status of receipt delivery.
-	ReceiptRegistration *Status `json:"receipt_registration,omitempty"`
+	ReceiptRegistration Status `json:"receipt_registration,omitempty"`
 
 	// Any additional data you might require for processing payments
 	// (for example, your internal order ID), specified as a “key-value” pair and
@@ -74,14 +77,14 @@ type Payment struct {
 	Metadata interface{} `json:"metadata,omitempty"`
 
 	// Commentary to the canceled status: who and why canceled the payment.
-	CancellationDetails *CancellationDetails `json:"cancellation_details,omitempty"`
+	CancellationDetails *yoocommon.CancellationDetails `json:"cancellation_details,omitempty"`
 
 	// Payment authorization details.
 	AuthorizationDetails *AuthorizationDetails `json:"authorization_details,omitempty"`
 
 	// Information about money distribution: the amounts of transfers and
 	// the stores to be transferred to.
-	Transfers *[]Transfer `json:"transfers,omitempty"`
+	Transfers []Transfer `json:"transfers,omitempty"`
 
 	// The deal within which the payment is being carried out.
 	Deal *Deal `json:"deal,omitempty"`
