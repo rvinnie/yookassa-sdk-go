@@ -1,3 +1,4 @@
+// Package yoorefund describes all the necessary entities for working with YooMoney Refunds.
 package yoorefund
 
 // RefundList contains list of refunds. Data can be filtered.

@@ -1,3 +1,4 @@
+// Package yoorefund describes all the necessary entities for working with YooMoney Refunds.
 package yoorefund
 
 import (
