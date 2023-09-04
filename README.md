@@ -39,3 +39,7 @@ func main() {
 * [Запрос на отмену незавершенного платежа](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Запрос-на-отмену-незавершенного-платежа)
 * [Получить информацию о платеже](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Получить-информацию-о-платеже)
 * [Получить список платежей с фильтрацией](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.md#Получить-список-платежей-с-фильтрацией)
+#### [Работа с возвратами](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/03-refunds.md)
+* [Запрос на создание возврата](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/03-refunds.md#Запрос-на-создание-возврата)
+* [Получить информацию о возврате](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/03-refunds.md#Получить-информацию-о-возврате)
+* [Получить список возвратов с фильтрацией](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/03-refunds.md#Получить-список-возвратов-с-фильтрацией)

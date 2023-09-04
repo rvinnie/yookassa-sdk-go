@@ -39,3 +39,7 @@ func main() {
 * [Request to cancel an incomplete payment](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.en.md#Request-to-cancel-an-incomplete-payment)
 * [Get payment information](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.en.md#Get-payment-information)
 * [Get a list of payments with filtering](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/02-payments.en.md#Get-a-list-of-payments-with-filtering)
+#### [Working with refunds](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/03-refunds.en.md)
+* [Request to create a refund](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/03-refunds.en.md#Request-to-create-a-refund)
+* [Get refund information](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/03-refunds.en.md#Get-refund-information)
+* [Get a list of refunds with filtering](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/03-refunds.en.md#Get-a-list-of-refunds-with-filtering)
