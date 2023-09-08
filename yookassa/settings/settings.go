@@ -12,7 +12,7 @@ type Settings struct {
 	AccountID string `json:"account_id,omitempty"`
 
 	// Store's or gateway status.
-	Status *Status `json:"status,omitempty"`
+	Status *SettingsStatus `json:"status,omitempty"`
 
 	// This is the Demo store or gateway.
 	Test bool `json:"test,omitempty"`

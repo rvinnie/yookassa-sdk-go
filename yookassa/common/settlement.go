@@ -6,5 +6,5 @@ type Settlement struct {
 	Type string `json:"type,omitempty"`
 
 	// Amount of seller’s remuneration.
-	Amount Amount `json:"amount,omitempty"`
+	Amount *Amount `json:"amount,omitempty"`
 }

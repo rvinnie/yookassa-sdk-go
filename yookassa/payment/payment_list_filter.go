@@ -49,7 +49,7 @@ type PaymentListFilter struct {
 	PaymentMethod string `json:"payment_method,omitempty"`
 
 	// Filter by payment status. Example: succeeded
-	Status Status `json:"status,omitempty"`
+	Status PaymentStatus `json:"status,omitempty"`
 
 	// Size of the output of request results: number of objects sent in response.
 	// Possible values: 1 to 100.

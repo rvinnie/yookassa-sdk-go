@@ -21,8 +21,9 @@ SDK позволяет создавать, подтверждать, отмен�
 
 ```go
 import (
-	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+    "github.com/rvinnie/yookassa-sdk-go/yookassa"
+    "github.com/rvinnie/yookassa-sdk-go/yookassa/common"
+    "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -32,7 +33,7 @@ func main() {
 	paymentHandler := yookassa.NewPaymentHandler(yooclient)
 	// Создаем платеж
 	payment, _ := paymentHandler.CreatePayment(&yoopayment.Payment{
-		Amount: &yoopayment.Amount{
+		Amount: &yoocommon.Amount{
 			Value:    "1000.00",
 			Currency: "RUB",
 		},
@@ -63,8 +64,9 @@ func main() {
 
 ```go
 import (
-	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+    "github.com/rvinnie/yookassa-sdk-go/yookassa"
+    "github.com/rvinnie/yookassa-sdk-go/yookassa/common"
+    "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -74,7 +76,7 @@ func main() {
 	paymentHandler := yookassa.NewPaymentHandler(yooclient)
 	// Создаем платеж
 	payment, _ := paymentHandler.CreatePayment(&yoopayment.Payment{
-		Amount: &yoopayment.Amount{
+		Amount: &yoocommon.Amount{
 			Value:    "1000.00",
 			Currency: "RUB",
 		},
@@ -108,6 +110,7 @@ func main() {
 ```go
 import (
     "github.com/rvinnie/yookassa-sdk-go/yookassa"
+    "github.com/rvinnie/yookassa-sdk-go/yookassa/common"
     "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
 
@@ -118,7 +121,7 @@ func main() {
     paymentHandler := yookassa.NewPaymentHandler(yooclient)
     // Создаем платеж
     payment, _ := paymentHandler.CreatePayment(&yoopayment.Payment{
-        Amount: &yoopayment.Amount{
+        Amount: &yoocommon.Amount{
             Value:    "1000.00",
             Currency: "RUB",
         },

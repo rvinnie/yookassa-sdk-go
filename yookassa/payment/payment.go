@@ -3,6 +3,7 @@ package yoopayment
 
 import (
 	"github.com/rvinnie/yookassa-sdk-go/yookassa/common"
+	yooreceipt "github.com/rvinnie/yookassa-sdk-go/yookassa/receipt"
 	"time"
 )
 
@@ -14,7 +15,7 @@ type Payment struct {
 	ID string `json:"id,omitempty"`
 
 	// Payment Status. Possible values: pending, waiting_for_capture, succeeded, and canceled.
-	Status Status `json:"status,omitempty"`
+	Status PaymentStatus `json:"status,omitempty"`
 
 	// Payment Amount. Sometimes YooMoney's partners charge additional
 	// commission from the users that is not included in this amount.
@@ -68,7 +69,7 @@ type Payment struct {
 	Refundable bool `json:"refundable,omitempty"`
 
 	// Status of receipt delivery.
-	ReceiptRegistration Status `json:"receipt_registration,omitempty"`
+	ReceiptRegistration yooreceipt.ReceiptStatus `json:"receipt_registration,omitempty"`
 
 	// Any additional data you might require for processing payments
 	// (for example, your internal order ID), specified as a “key-value” pair and

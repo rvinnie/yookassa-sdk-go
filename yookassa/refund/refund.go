@@ -3,6 +3,7 @@ package yoorefund
 
 import (
 	"github.com/rvinnie/yookassa-sdk-go/yookassa/common"
+	"github.com/rvinnie/yookassa-sdk-go/yookassa/receipt"
 	"time"
 )
 
@@ -16,13 +17,13 @@ type Refund struct {
 	PaymentID string `json:"payment_id,omitempty"`
 
 	// Refund status. Possible values: pending, succeeded, and canceled.
-	Status Status `json:"status,omitempty"`
+	Status RefundStatus `json:"status,omitempty"`
 
 	// Comment to the canceled status: who canceled the refund and what was the reason.
 	CancellationDetails *yoocommon.CancellationDetails `json:"cancellation_details,omitempty"`
 
 	// Status of receipt delivery. Possible values: pending, succeeded, and canceled.
-	ReceiptRegistration Status `json:"receipt_registration,omitempty"`
+	ReceiptRegistration yooreceipt.ReceiptStatus `json:"receipt_registration,omitempty"`
 
 	// Time to refund creation, based on UTC and specified in the ISO 8601 format,
 	// for example, 2017-11-03T11:52:31.827Z

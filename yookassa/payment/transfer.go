@@ -11,13 +11,13 @@ type Transfer struct {
 	AccountID string `json:"account_id,omitempty"`
 
 	// Amount to be transferred to the store.
-	Amount yoocommon.Amount `json:"amount,omitempty"`
+	Amount *yoocommon.Amount `json:"amount,omitempty"`
 
 	// Status of the money distribution between stores.
-	Status Status `json:"status,omitempty"`
+	Status PaymentStatus `json:"status,omitempty"`
 
 	// Commission for sold products or services charged in your favor.
-	PlatformFeeAmount yoocommon.Amount `json:"platform_fee_amount,omitempty"`
+	PlatformFeeAmount *yoocommon.Amount `json:"platform_fee_amount,omitempty"`
 
 	// Transaction description, which the seller will see in the YooMoney Merchant Profile.
 	// Example: "Marketplace order No. 72".
