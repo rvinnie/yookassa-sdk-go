@@ -2,8 +2,9 @@
 package yoopayment
 
 import (
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/common"
 	"time"
+
+	yoocommon "github.com/rvinnie/yookassa-sdk-go/yookassa/common"
 )
 
 // The Payment object contains all currently relevant information
@@ -33,6 +34,9 @@ type Payment struct {
 
 	// Payment Recipient.
 	Recipient *Recipient `json:"recipient,omitempty"`
+
+	// Payment Receipt
+	Receipt *Receipt `json:"receipt,omitempty"`
 
 	// Payment method used for this payment.
 	PaymentMethod PaymentMethoder `json:"payment_method,omitempty"`
