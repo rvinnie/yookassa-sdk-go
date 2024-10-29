@@ -8,7 +8,6 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/google/uuid"
 	yooerror "github.com/rvinnie/yookassa-sdk-go/yookassa/errors"
 	yoopayment "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
@@ -48,10 +47,6 @@ func (p *PaymentHandler) CapturePayment(payment *yoopayment.Payment) (*yoopaymen
 
 	captureRequest := fmt.Sprintf("%s/%s/%s", PaymentEndpoint, payment.ID, CaptureEndpoint)
 
-	if p.idempotencyKey == "" {
-		p.idempotencyKey = uuid.NewString()
-	}
-
 	resp, err := p.client.makeRequest(
 		http.MethodPost,
 		captureRequest,
@@ -83,9 +78,6 @@ func (p *PaymentHandler) CapturePayment(payment *yoopayment.Payment) (*yoopaymen
 // CancelPayment cancel payment by ID.
 func (p *PaymentHandler) CancelPayment(paymentId string) (*yoopayment.Payment, error) {
 	cancelRequest := fmt.Sprintf("%s/%s/%s", PaymentEndpoint, paymentId, CancelEndpoint)
-	if p.idempotencyKey == "" {
-		p.idempotencyKey = uuid.NewString()
-	}
 
 	resp, err := p.client.makeRequest(http.MethodPost, cancelRequest, nil, nil, p.idempotencyKey)
 	if err != nil {
@@ -114,10 +106,6 @@ func (p *PaymentHandler) CreatePayment(payment *yoopayment.Payment) (*yoopayment
 	paymentJson, err := json.MarshalIndent(payment, "", "\t")
 	if err != nil {
 		return nil, err
-	}
-
-	if p.idempotencyKey == "" {
-		p.idempotencyKey = uuid.NewString()
 	}
 
 	resp, err := p.client.makeRequest(

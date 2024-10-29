@@ -5,6 +5,8 @@ import (
 	"bytes"
 	"fmt"
 	"net/http"
+
+	"github.com/google/uuid"
 )
 
 const (
@@ -38,6 +40,10 @@ func (c *Client) makeRequest(
 	req, err := http.NewRequest(method, uri, bytes.NewBuffer(body))
 	if err != nil {
 		return nil, err
+	}
+
+	if idempotencyKey == "" {
+		idempotencyKey = uuid.NewString()
 	}
 
 	if method == http.MethodPost {
