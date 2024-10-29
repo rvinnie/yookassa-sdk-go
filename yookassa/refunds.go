@@ -25,10 +25,6 @@ func NewRefundHandler(client *Client) *RefundHandler {
 	return &RefundHandler{client: client}
 }
 
-func (p *RefundHandler) IdempotencyKey() string {
-	return p.idempotencyKey
-}
-
 func (r RefundHandler) WithIdempotencyKey(idempotencyKey string) RefundHandler {
 	r.idempotencyKey = idempotencyKey
 

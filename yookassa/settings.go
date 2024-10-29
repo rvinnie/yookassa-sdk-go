@@ -24,10 +24,6 @@ func NewSettingsHandler(client *Client) *SettingsHandler {
 	return &SettingsHandler{client: client}
 }
 
-func (p *SettingsHandler) IdempotencyKey() string {
-	return p.idempotencyKey
-}
-
 func (r SettingsHandler) WithIdempotencyKey(idempotencyKey string) SettingsHandler {
 	r.idempotencyKey = idempotencyKey
 

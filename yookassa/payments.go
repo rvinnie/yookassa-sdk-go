@@ -28,10 +28,6 @@ func NewPaymentHandler(client *Client) *PaymentHandler {
 	return &PaymentHandler{client: client}
 }
 
-func (p *PaymentHandler) IdempotencyKey() string {
-	return p.idempotencyKey
-}
-
 func (p PaymentHandler) WithIdempotencyKey(idempotencyKey string) *PaymentHandler {
 	p.idempotencyKey = idempotencyKey
 
