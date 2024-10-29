@@ -3,10 +3,11 @@ package yookassa
 
 import (
 	"encoding/json"
-	yooerror "github.com/rvinnie/yookassa-sdk-go/yookassa/errors"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/settings"
 	"io"
 	"net/http"
+
+	yooerror "github.com/rvinnie/yookassa-sdk-go/yookassa/errors"
+	yoosettings "github.com/rvinnie/yookassa-sdk-go/yookassa/settings"
 )
 
 const (
@@ -15,11 +16,22 @@ const (
 
 // SettingsHandler works with client's account settings.
 type SettingsHandler struct {
-	client *Client
+	client         *Client
+	idempotencyKey string
 }
 
 func NewSettingsHandler(client *Client) *SettingsHandler {
 	return &SettingsHandler{client: client}
+}
+
+func (p *SettingsHandler) IdempotencyKey() string {
+	return p.idempotencyKey
+}
+
+func (r SettingsHandler) WithIdempotencyKey(idempotencyKey string) SettingsHandler {
+	r.idempotencyKey = idempotencyKey
+
+	return r
 }
 
 // GetAccountSettings gets the client account settings.
@@ -29,7 +41,7 @@ func (s *SettingsHandler) GetAccountSettings(OnBehalfOf *string) (*yoosettings.S
 		params = map[string]interface{}{"on_behalf_of": *OnBehalfOf}
 	}
 
-	resp, err := s.client.makeRequest(http.MethodGet, MeEndpoint, nil, params)
+	resp, err := s.client.makeRequest(http.MethodGet, MeEndpoint, nil, params, s.idempotencyKey)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +63,9 @@ func (s *SettingsHandler) GetAccountSettings(OnBehalfOf *string) (*yoosettings.S
 	return settingsResponse, nil
 }
 
-func (s *SettingsHandler) parseSettingsResponse(resp *http.Response) (*yoosettings.Settings, error) {
+func (s *SettingsHandler) parseSettingsResponse(
+	resp *http.Response,
+) (*yoosettings.Settings, error) {
 	var responseBytes []byte
 	responseBytes, err := io.ReadAll(resp.Body)
 	if err != nil {
