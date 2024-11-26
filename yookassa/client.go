@@ -4,8 +4,9 @@ package yookassa
 import (
 	"bytes"
 	"fmt"
-	"github.com/google/uuid"
 	"net/http"
+
+	"github.com/google/uuid"
 )
 
 const (
@@ -27,7 +28,13 @@ func NewClient(accountId string, secretKey string) *Client {
 	}
 }
 
-func (c *Client) makeRequest(method string, endpoint string, body []byte, params map[string]interface{}) (*http.Response, error) {
+func (c *Client) makeRequest(
+	method string,
+	endpoint string,
+	body []byte,
+	params map[string]interface{},
+	idempotencyKey string,
+) (*http.Response, error) {
 	uri := fmt.Sprintf("%s%s", BaseURL, endpoint)
 
 	req, err := http.NewRequest(method, uri, bytes.NewBuffer(body))
@@ -35,9 +42,13 @@ func (c *Client) makeRequest(method string, endpoint string, body []byte, params
 		return nil, err
 	}
 
+	if idempotencyKey == "" {
+		idempotencyKey = uuid.NewString()
+	}
+
 	if method == http.MethodPost {
 		req.Header.Set("Content-Type", "application/json")
-		req.Header.Set("Idempotence-Key", uuid.NewString())
+		req.Header.Set("Idempotence-Key", idempotencyKey)
 	}
 
 	req.SetBasicAuth(c.accountId, c.secretKey)
