@@ -43,3 +43,9 @@ func main() {
 * [Запрос на создание возврата](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/03-refunds.md#Запрос-на-создание-возврата)
 * [Получить информацию о возврате](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/03-refunds.md#Получить-информацию-о-возврате)
 * [Получить список возвратов с фильтрацией](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/03-refunds.md#Получить-список-возвратов-с-фильтрацией)
+#### [Работа с вебхуками](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/04-webhooks.md)
+* [Пример обработки вебхуков](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/04-webhooks.md#Пример-обработки-вебхуков)
+* [Тестирование локально](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/04-webhooks.md#Тестирование-локально)
+
+
+
