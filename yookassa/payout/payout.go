@@ -1,5 +1,7 @@
 package yoopayout
 
+import yoocommon "github.com/rvinnie/yookassa-sdk-go/yookassa/common"
+
 // See https://yookassa.ru/developers/payouts/making-payouts/sbp?lang=en
 
 type Amount struct {
@@ -19,7 +21,7 @@ type Metadata struct {
 
 type Payout struct {
 	Id                    string                `json:"id"`
-	Amount                Amount                `json:"amount"`
+	Amount                *yoocommon.Amount     `json:"amount"`
 	PayoutDestinationData PayoutDestinationData `json:"payout_destination_data"`
 	Description           string                `json:"description"`
 	Metadata              Metadata              `json:"metadata"`

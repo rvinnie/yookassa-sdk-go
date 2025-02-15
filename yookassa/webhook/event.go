@@ -1,6 +1,9 @@
 package yoowebhook
 
-import yoopayment "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+import (
+	yoopayment "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	yoopayout "github.com/rvinnie/yookassa-sdk-go/yookassa/payout"
+)
 
 type WebhookType string
 
@@ -15,10 +18,12 @@ const (
 	EventPaymentWaitingForCapture WebhookEventType = "payment.waiting_for_capture"
 	EventPaymentCanceled          WebhookEventType = "payment.canceled"
 	EventRefundSucceeded          WebhookEventType = "refund.succeeded"
+	EventPayoutSucceeded          WebhookEventType = "payout.succeeded"
+	EventPayoutCanceled           WebhookEventType = "payout.canceled"
 )
 
-type WebhookEvent struct {
-	Type   WebhookType        `json:"type"`
-	Event  WebhookEventType   `json:"event"`
-	Object yoopayment.Payment `json:"object"`
+type WebhookEvent[T yoopayment.Payment | yoopayout.Payout] struct {
+	Type   WebhookType      `json:"type"`
+	Event  WebhookEventType `json:"event"`
+	Object T                `json:"object"`
 }
