@@ -23,8 +23,8 @@ In response to the request, the `Refund` object will come in the current status.
 
 ```go
 import (
-    "github.com/rvinnie/yookassa-sdk-go/yookassa"
-    "github.com/rvinnie/yookassa-sdk-go/yookassa/refund"
+    "github.com/imgrigorev/yookassa-sdk-go/yookassa"
+    "github.com/imgrigorev/yookassa-sdk-go/yookassa/refund"
 )
 
 func main() {
@@ -56,8 +56,8 @@ In response to the request, the `Refund` object will come in the current status.
 
 ```go
 import (
-    "github.com/rvinnie/yookassa-sdk-go/yookassa"
-    "github.com/rvinnie/yookassa-sdk-go/yookassa/refund"
+    "github.com/imgrigorev/yookassa-sdk-go/yookassa"
+    "github.com/imgrigorev/yookassa-sdk-go/yookassa/refund"
 )
 
 func main() {
@@ -86,8 +86,8 @@ the list fragment and the `next_cursor` parameter with a pointer to the next fra
 
 ```go
 import (
-    "github.com/rvinnie/yookassa-sdk-go/yookassa"
-    "github.com/rvinnie/yookassa-sdk-go/yookassa/refund"
+    "github.com/imgrigorev/yookassa-sdk-go/yookassa"
+    "github.com/imgrigorev/yookassa-sdk-go/yookassa/refund"
 )
 
 func main() {

@@ -21,8 +21,8 @@ The response to the request will contain the `Payment` object with the current s
 
 ```go
 import (
-	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	"github.com/imgrigorev/yookassa-sdk-go/yookassa"
+	"github.com/imgrigorev/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -64,8 +64,8 @@ The response to the request will contain the `Payment` object with the current s
 
 ```go
 import (
-	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	"github.com/imgrigorev/yookassa-sdk-go/yookassa"
+	"github.com/imgrigorev/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -111,8 +111,8 @@ If the payment was made using other payment methods, the process can take up to 
 The response to the request will contain the `Payment` object with the current status.
 ```go
 import (
-    "github.com/rvinnie/yookassa-sdk-go/yookassa"
-    "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+    "github.com/imgrigorev/yookassa-sdk-go/yookassa"
+    "github.com/imgrigorev/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -156,7 +156,7 @@ The response to the request will contain the `Payment` object with the current s
 ```go
 package main
 
-import "github.com/rvinnie/yookassa-sdk-go/yookassa"
+import "github.com/imgrigorev/yookassa-sdk-go/yookassa"
 
 func main() {
 	// Create a yookassa client by specifying the store ID and secret key
@@ -186,8 +186,8 @@ with a `cursor` to the next fragment.
 package main
 
 import (
-	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	"github.com/imgrigorev/yookassa-sdk-go/yookassa"
+	"github.com/imgrigorev/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {

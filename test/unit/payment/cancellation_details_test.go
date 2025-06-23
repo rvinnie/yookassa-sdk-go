@@ -2,9 +2,10 @@ package payment
 
 import (
 	"encoding/json"
-	yoopayment "github.com/rvinnie/yookassa-sdk-go/yookassa/common"
 	"reflect"
 	"testing"
+
+	yoopayment "github.com/imgrigorev/yookassa-sdk-go/yookassa/common"
 )
 
 func TestCancellationDetails(t *testing.T) {

@@ -12,4 +12,10 @@ type Item struct {
 
 	// parameter with the fixed value 1 (price without VAT)
 	VatCode string `json:"vat_code"`
+
+	// Признак способа расчета full_prepayment || full_payment
+	PaymentMode string `json:"payment_mode"`
+
+	// Признак предмета расчета
+	PaymentSubject string `json:"payment_subject"`
 }

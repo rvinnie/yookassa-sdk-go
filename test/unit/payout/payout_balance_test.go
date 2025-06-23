@@ -2,9 +2,10 @@ package payout
 
 import (
 	"encoding/json"
-	yoopayout "github.com/rvinnie/yookassa-sdk-go/yookassa/payout"
 	"reflect"
 	"testing"
+
+	yoopayout "github.com/imgrigorev/yookassa-sdk-go/yookassa/payout"
 )
 
 func TestPayoutBalance(t *testing.T) {

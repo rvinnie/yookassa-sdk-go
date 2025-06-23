@@ -2,9 +2,10 @@ package settings
 
 import (
 	"encoding/json"
-	yoosettings "github.com/rvinnie/yookassa-sdk-go/yookassa/settings"
 	"reflect"
 	"testing"
+
+	yoosettings "github.com/imgrigorev/yookassa-sdk-go/yookassa/settings"
 )
 
 func TestPayoutBalance(t *testing.T) {

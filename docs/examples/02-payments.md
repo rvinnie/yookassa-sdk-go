@@ -21,8 +21,8 @@ SDK позволяет создавать, подтверждать, отмен�
 
 ```go
 import (
-	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	"github.com/imgrigorev/yookassa-sdk-go/yookassa"
+	"github.com/imgrigorev/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -63,8 +63,8 @@ func main() {
 
 ```go
 import (
-	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	"github.com/imgrigorev/yookassa-sdk-go/yookassa"
+	"github.com/imgrigorev/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -107,8 +107,8 @@ func main() {
 В ответ на запрос придет объект платежа в актуальном статусе.
 ```go
 import (
-    "github.com/rvinnie/yookassa-sdk-go/yookassa"
-    "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+    "github.com/imgrigorev/yookassa-sdk-go/yookassa"
+    "github.com/imgrigorev/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -152,7 +152,7 @@ func main() {
 ```go
 package main
 
-import "github.com/rvinnie/yookassa-sdk-go/yookassa"
+import "github.com/imgrigorev/yookassa-sdk-go/yookassa"
 
 func main() {
 	// Создаем yookassa клиента, указав идентификатор магазина и секретный ключ
@@ -181,8 +181,8 @@ func main() {
 package main
 
 import (
-	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	"github.com/imgrigorev/yookassa-sdk-go/yookassa"
+	"github.com/imgrigorev/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {

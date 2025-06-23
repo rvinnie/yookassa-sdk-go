@@ -10,7 +10,7 @@
 To work with the API, you need to create a client, specifying the store ID and secret key.
 
 ```go
-import "github.com/rvinnie/yookassa-sdk-go"
+import "github.com/imgrigorev/yookassa-sdk-go"
 
 func main() {
     client := yookassa.NewClient('<Store ID>', '<Secret key>')	
@@ -24,7 +24,7 @@ func main() {
 After setting the configuration, you can check the correctness of the data, as well as get information about the store.
 
 ```go
-import "github.com/rvinnie/yookassa-sdk-go/yookassa"
+import "github.com/imgrigorev/yookassa-sdk-go/yookassa"
 
 func main() {
     // Create a yookassa client by specifying the store ID and secret key
