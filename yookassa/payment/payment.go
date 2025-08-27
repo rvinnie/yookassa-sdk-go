@@ -38,6 +38,9 @@ type Payment struct {
 	// Payment Receipt
 	Receipt *Receipt `json:"receipt,omitempty"`
 
+	// Saving payment details for recurring payments.
+	SavePaymentMethod bool `json:"save_payment_method,omitempty"`
+
 	// Payment method used for this payment.
 	PaymentMethod PaymentMethoder `json:"payment_method,omitempty"`
 
