@@ -10,5 +10,5 @@ type Receipt struct {
 	Items []*yoocommon.Item `json:"items"`
 
 	// For third-party online cash registers: a required parameter if you use an Atol Online cash register updated to FFD 1.2, or if you have multiple taxation systems; in all other cases, it is not passed.
-	TaxSystemCode string `json:"tax_system_code,omitempty"`
+	TaxSystemCode int16 `json:"tax_system_code,omitempty"`
 }
