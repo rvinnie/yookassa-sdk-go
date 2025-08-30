@@ -11,5 +11,12 @@ type Item struct {
 	Amount *Amount `json:"amount"`
 
 	// parameter with the fixed value 1 (price without VAT)
-	VatCode string `json:"vat_code"`
+	VatCode int16 `json:"vat_code"`
+
+	// Payment method indicator (tag in Federal Law 54 — 1214) — reflects the type of payment and the fact of goods transfer.
+	// Example: the customer fully pays for the goods and immediately receives them. In this case, the value full_payment (full settlement) must be passed.
+	PaymentMode string `json:"payment_mode,omitempty"`
+
+	// Item type indicator (tag in Federal Law 54 — 1212) — specifies what the payment is for, for example, a product or a service.
+	PaymentSubject string `json:"payment_subject,omitempty"`
 }
