@@ -22,6 +22,7 @@ The response to the request will contain the `Payment` object with the current s
 ```go
 import (
 	"github.com/rvinnie/yookassa-sdk-go/yookassa"
+	"github.com/rvinnie/yookassa-sdk-go/yookassa/common"
 	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
 
@@ -32,7 +33,7 @@ func main() {
 	paymentHandler := yookassa.NewPaymentHandler(yooclient)
 	// Create a payment
 	payment, _ := paymentHandler.CreatePayment(&yoopayment.Payment{
-		Amount: &yoopayment.Amount{
+		Amount: &yoocommon.Amount{
 			Value:    "1000.00",
 			Currency: "RUB",
 		},
