@@ -30,6 +30,9 @@ type Payment struct {
 	// A one-time token for making payments, generated using Checkout.js or the mobile SDK.
 	PaymentToken string `json:"payment_token,omitempty"`
 
+	// Saved payment method's ID.
+	PaymentMethodID string `json:"payment_method_id,omitempty"`
+
 	// Description of the transaction (maximum 128 characters) displayed in your YooMoney
 	// Merchant Profile, and shown to the user during checkout. For example,
 	// "Payment for order No. 72 for user@yoomoney.ru".

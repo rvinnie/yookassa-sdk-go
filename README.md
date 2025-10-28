@@ -17,11 +17,11 @@
 ### Начало работы
 1. Импортируйте модуль
 ```golang
-import "github.com/rvinnie/yookassa-sdk-go"
+import "github.com/rvinnie/yookassa-sdk-go/yookassa"
 ```
 2. Установите данные для конфигурации
 ```golang
-import "github.com/rvinnie/yookassa-sdk-go"
+import "github.com/rvinnie/yookassa-sdk-go/yookassa"
 
 func main() {
     client := yookassa.NewClient('<Идентификатор магазина>', '<Секретный ключ>')	

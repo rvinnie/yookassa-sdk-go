@@ -17,11 +17,11 @@
 ### Commencing work
 1. Import module
 ```golang
-import "github.com/rvinnie/yookassa-sdk-go"
+import "github.com/rvinnie/yookassa-sdk-go/yookassa"
 ```
 2. Configure a Client
 ```golang
-import "github.com/rvinnie/yookassa-sdk-go"
+import "github.com/rvinnie/yookassa-sdk-go/yookassa"
 
 func main() {
     client := yookassa.NewClient('<Account Id>', '<Secret Key>')	

@@ -10,7 +10,7 @@
 Для работы с API необходимо создать клиента, указав идентификатор магазина и секретный ключ.
 
 ```go
-import "github.com/rvinnie/yookassa-sdk-go"
+import "github.com/rvinnie/yookassa-sdk-go/yookassa"
 
 func main() {
     client := yookassa.NewClient('<Идентификатор магазина>', '<Секретный ключ>')	
