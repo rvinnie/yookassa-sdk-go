@@ -23,17 +23,18 @@
 
 ```go
 import (
+	"context"
     "github.com/rvinnie/yookassa-sdk-go/yookassa"
-    "github.com/rvinnie/yookassa-sdk-go/yookassa/refund"
+    yoorefund "github.com/rvinnie/yookassa-sdk-go/yookassa/refund"
 )
 
 func main() {
     // Создаем yookassa клиента, указав идентификатор магазина и секретный ключ
     yooclient := yookassa.NewClient('<Store ID>', '<Secret key>')
     // Создаем обработчик возвратов
-    refundHandler := yookassa.NewRefundHandler(client)
+    refundHandler := yookassa.NewRefundHandler(yooclient)
     // Создаем возврат
-    refund, err := refundHandler.CreateRefund(&yoorefund.Refund{
+    refund, err := refundHandler.CreateRefund(context.Background(), &yoorefund.Refund{
         PaymentId: "2c79414f-000f-5100-9000-1d082dd142ea",
         Amount: &yoocommon.Amount{
             Value:    "123",
@@ -56,17 +57,18 @@ func main() {
 
 ```go
 import (
+	"context"
     "github.com/rvinnie/yookassa-sdk-go/yookassa"
-    "github.com/rvinnie/yookassa-sdk-go/yookassa/refund"
+    yoorefund "github.com/rvinnie/yookassa-sdk-go/yookassa/refund"
 )
 
 func main() {
     // Создаем yookassa клиента, указав идентификатор магазина и секретный ключ
     yooclient := yookassa.NewClient('<Store ID>', '<Secret key>')
     // Создаем обработчик возвратов 
-    refundHandler := yookassa.NewRefundHandler(client)
+    refundHandler := yookassa.NewRefundHandler(yooclient)
     // Получаем объект возврата
-    refund, _ := refundHandler.FindRefund("2c87b72c-0015-5000-9000-172b6038152a")
+    refund, _ := refundHandler.FindRefund(context.Background(), "2c87b72c-0015-5000-9000-172b6038152a")
 }
 ```
 
@@ -86,17 +88,18 @@ func main() {
 
 ```go
 import (
+	"context"
     "github.com/rvinnie/yookassa-sdk-go/yookassa"
-    "github.com/rvinnie/yookassa-sdk-go/yookassa/refund"
+    yoorefund "github.com/rvinnie/yookassa-sdk-go/yookassa/refund"
 )
 
 func main() {
     // Создаем yookassa клиента, указав идентификатор магазина и секретный ключ
     yooclient := yookassa.NewClient('<Store ID>', '<Secret key>')
     // Создаем обработчик возвратов 
-    refundHandler := yookassa.NewRefundHandler(client)
+    refundHandler := yookassa.NewRefundHandler(yooclient)
     // Получаем список объектов возврата (последние 3 со статусом succeeded)
-    refunds, err := refundHandler.FindRefunds(&yoorefund.RefundListFilter{
+    refunds, err := refundHandler.FindRefunds(context.Background(), &yoorefund.RefundListFilter{
         Status: yoorefund.Succeeded,
         Limit:  3,
     })

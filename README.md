@@ -21,10 +21,20 @@ import "github.com/rvinnie/yookassa-sdk-go/yookassa"
 ```
 2. Установите данные для конфигурации
 ```golang
-import "github.com/rvinnie/yookassa-sdk-go/yookassa"
+import (
+    "net/http"
+    "time"
+
+    "github.com/rvinnie/yookassa-sdk-go/yookassa"
+    yooopts "github.com/rvinnie/yookassa-sdk-go/yookassa/opts"
+)
 
 func main() {
-    client := yookassa.NewClient('<Идентификатор магазина>', '<Секретный ключ>')	
+    client := yookassa.NewClient(
+        '<Идентификатор магазина>',
+        '<Секретный ключ>',
+        yooopts.WithHTTPClient(http.Client{Timeout: 30 * time.Second}),
+    )
 }
 ```
 3. Вызовите нужный метод API. [Подробнее в документации к API ЮKassa](https://yookassa.ru/developers/api)
@@ -46,6 +56,5 @@ func main() {
 #### [Работа с вебхуками](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/04-webhooks.md)
 * [Пример обработки вебхуков](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/04-webhooks.md#Пример-обработки-вебхуков)
 * [Тестирование локально](https://github.com/rvinnie/yookassa-sdk-go/blob/main/docs/examples/04-webhooks.md#Тестирование-локально)
-
 
 

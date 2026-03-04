@@ -6,6 +6,8 @@ import (
 	"io"
 )
 
+const maxErrorBodyBytes = 1 << 20 // 1 MiB
+
 type YoomoneyError struct {
 	Type        string `json:"type,omitempty"`
 	Id          string `json:"id,omitempty"`
@@ -19,7 +21,7 @@ func (y *YoomoneyError) Error() string {
 }
 
 func GetError(r io.Reader) (*YoomoneyError, error) {
-	responseBytes, err := io.ReadAll(r)
+	responseBytes, err := io.ReadAll(io.LimitReader(r, maxErrorBodyBytes))
 	if err != nil {
 		return nil, err
 	}

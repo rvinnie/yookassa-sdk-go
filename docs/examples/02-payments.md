@@ -21,8 +21,9 @@ SDK позволяет создавать, подтверждать, отмен�
 
 ```go
 import (
+	"context"
 	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	yoopayment "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -31,7 +32,7 @@ func main() {
 	// Создаем обработчик платежей
 	paymentHandler := yookassa.NewPaymentHandler(yooclient)
 	// Создаем платеж
-	payment, _ := paymentHandler.CreatePayment(&yoopayment.Payment{
+	payment, _ := paymentHandler.CreatePayment(context.Background(), &yoopayment.Payment{
 		Amount: &yoopayment.Amount{
 			Value:    "1000.00",
 			Currency: "RUB",
@@ -63,8 +64,9 @@ func main() {
 
 ```go
 import (
+	"context"
 	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	yoopayment "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -73,7 +75,7 @@ func main() {
 	// Создаем обработчик платежей
 	paymentHandler := yookassa.NewPaymentHandler(yooclient)
 	// Создаем платеж
-	payment, _ := paymentHandler.CreatePayment(&yoopayment.Payment{
+	payment, _ := paymentHandler.CreatePayment(context.Background(), &yoopayment.Payment{
 		Amount: &yoopayment.Amount{
 			Value:    "1000.00",
 			Currency: "RUB",
@@ -90,7 +92,7 @@ func main() {
 	time.Sleep(time.Second * 30)
 	
 	// Подтверждаем платеж
-	payment, _ = paymentHandler.CapturePayment(payment)
+	payment, _ = paymentHandler.CapturePayment(context.Background(), payment)
 }
 ```
 [Подробнее о подтверждении и отмене платежей](https://yookassa.ru/developers/payments/payment-process#capture-and-cancel)
@@ -107,8 +109,9 @@ func main() {
 В ответ на запрос придет объект платежа в актуальном статусе.
 ```go
 import (
+	"context"
     "github.com/rvinnie/yookassa-sdk-go/yookassa"
-    "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+    yoopayment "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -117,7 +120,7 @@ func main() {
     // Создаем обработчик платежей
     paymentHandler := yookassa.NewPaymentHandler(yooclient)
     // Создаем платеж
-    payment, _ := paymentHandler.CreatePayment(&yoopayment.Payment{
+    payment, _ := paymentHandler.CreatePayment(context.Background(), &yoopayment.Payment{
         Amount: &yoopayment.Amount{
             Value:    "1000.00",
             Currency: "RUB",
@@ -134,7 +137,7 @@ func main() {
     time.Sleep(time.Second * 30)
     
     // Отменяем платеж
-    payment, _ = paymentHandler.CancelPayment(payment.ID)
+    payment, _ = paymentHandler.CancelPayment(context.Background(), payment.ID)
 }
 ```
 [Подробнее о подтверждении и отмене платежей](https://yookassa.ru/developers/payments/payment-process#capture-and-cancel)
@@ -152,7 +155,11 @@ func main() {
 ```go
 package main
 
-import "github.com/rvinnie/yookassa-sdk-go/yookassa"
+import (
+	"context"
+
+	"github.com/rvinnie/yookassa-sdk-go/yookassa"
+)
 
 func main() {
 	// Создаем yookassa клиента, указав идентификатор магазина и секретный ключ
@@ -160,7 +167,7 @@ func main() {
 	// Создаем обработчик платежей
 	paymentHandler := yookassa.NewPaymentHandler(yooclient)
 	// Получаем информацию о платеже
-	p, _ := paymentHandler.FindPayment("21b23b5b-000f-5061-a000-0674e49a8c10")
+	p, _ := paymentHandler.FindPayment(context.Background(), "21b23b5b-000f-5061-a000-0674e49a8c10")
 }
 ```
 ---
@@ -181,8 +188,9 @@ func main() {
 package main
 
 import (
+	"context"
 	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	yoopayment "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -194,7 +202,7 @@ func main() {
 	//  Получаем все 'succeeded' платежи по 3 штуки за запрос
 	var cursor string
 	for {
-		paymentsBatch, _ := paymentHandler.FindPayments(&yoopayment.PaymentListFilter{
+		paymentsBatch, _ := paymentHandler.FindPayments(context.Background(), &yoopayment.PaymentListFilter{
 			Limit:  3,
 			Cursor: cursor,
 			Status: yoopayment.Succeeded,

@@ -21,10 +21,20 @@ import "github.com/rvinnie/yookassa-sdk-go/yookassa"
 ```
 2. Configure a Client
 ```golang
-import "github.com/rvinnie/yookassa-sdk-go/yookassa"
+import (
+    "net/http"
+    "time"
+
+    "github.com/rvinnie/yookassa-sdk-go/yookassa"
+    yooopts "github.com/rvinnie/yookassa-sdk-go/yookassa/opts"
+)
 
 func main() {
-    client := yookassa.NewClient('<Account Id>', '<Secret Key>')	
+    client := yookassa.NewClient(
+        '<Account Id>',
+        '<Secret Key>',
+        yooopts.WithHTTPClient(http.Client{Timeout: 30 * time.Second}),
+    )
 }
 ```
 3. Call the required API method. [More details in our documentation for the YooKassa API](https://yookassa.ru/developers/api?lang=en)

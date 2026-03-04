@@ -2,6 +2,7 @@
 package yookassa
 
 import (
+	"context"
 	"encoding/json"
 	"io"
 	"net/http"
@@ -16,11 +17,11 @@ const (
 
 // SettingsHandler works with client's account settings.
 type SettingsHandler struct {
-	client         *Client
+	client         Requester
 	idempotencyKey string
 }
 
-func NewSettingsHandler(client *Client) *SettingsHandler {
+func NewSettingsHandler(client Requester) *SettingsHandler {
 	return &SettingsHandler{client: client}
 }
 
@@ -31,15 +32,18 @@ func (r SettingsHandler) WithIdempotencyKey(idempotencyKey string) SettingsHandl
 }
 
 // GetAccountSettings gets the client account settings.
-func (s *SettingsHandler) GetAccountSettings(OnBehalfOf *string) (*yoosettings.Settings, error) {
+func (s *SettingsHandler) GetAccountSettings(ctx context.Context, OnBehalfOf *string) (*yoosettings.Settings, error) {
 	var params map[string]interface{}
 	if OnBehalfOf != nil {
 		params = map[string]interface{}{"on_behalf_of": *OnBehalfOf}
 	}
 
-	resp, err := s.client.makeRequest(http.MethodGet, MeEndpoint, nil, params, s.idempotencyKey)
+	resp, err := s.client.MakeRequest(ctx, http.MethodGet, MeEndpoint, nil, params, s.idempotencyKey)
 	if err != nil {
 		return nil, err
+	}
+	if resp.Body != nil {
+		defer func() { _ = resp.Body.Close() }()
 	}
 
 	if resp.StatusCode != http.StatusOK {
@@ -63,7 +67,7 @@ func (s *SettingsHandler) parseSettingsResponse(
 	resp *http.Response,
 ) (*yoosettings.Settings, error) {
 	var responseBytes []byte
-	responseBytes, err := io.ReadAll(resp.Body)
+	responseBytes, err := io.ReadAll(io.LimitReader(resp.Body, maxResponseBodyBytes))
 	if err != nil {
 		return nil, err
 	}

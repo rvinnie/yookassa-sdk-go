@@ -21,9 +21,10 @@ The response to the request will contain the `Payment` object with the current s
 
 ```go
 import (
+	"context"
 	"github.com/rvinnie/yookassa-sdk-go/yookassa"
 	"github.com/rvinnie/yookassa-sdk-go/yookassa/common"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	yoopayment "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -32,7 +33,7 @@ func main() {
 	// Create a payment handler
 	paymentHandler := yookassa.NewPaymentHandler(yooclient)
 	// Create a payment
-	payment, _ := paymentHandler.CreatePayment(&yoopayment.Payment{
+	payment, _ := paymentHandler.CreatePayment(context.Background(), &yoopayment.Payment{
 		Amount: &yoocommon.Amount{
 			Value:    "1000.00",
 			Currency: "RUB",
@@ -65,8 +66,9 @@ The response to the request will contain the `Payment` object with the current s
 
 ```go
 import (
+	"context"
 	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	yoopayment "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -75,7 +77,7 @@ func main() {
 	// Create a payment handler
 	paymentHandler := yookassa.NewPaymentHandler(yooclient)
 	// Create a payment
-	payment, _ := paymentHandler.CreatePayment(&yoopayment.Payment{
+	payment, _ := paymentHandler.CreatePayment(context.Background(), &yoopayment.Payment{
 		Amount: &yoopayment.Amount{
 			Value:    "1000.00",
 			Currency: "RUB",
@@ -92,7 +94,7 @@ func main() {
 	time.Sleep(time.Second * 30)
 	
 	// We confirm the payment
-	payment, _ = paymentHandler.CapturePayment(payment)
+	payment, _ = paymentHandler.CapturePayment(context.Background(), payment)
 }
 ```
 [Learn more about confirming and canceling payments](https://yookassa.ru/developers/payment-acceptance/getting-started/payment-process?lang=en#capture-and-cancel)
@@ -112,8 +114,9 @@ If the payment was made using other payment methods, the process can take up to 
 The response to the request will contain the `Payment` object with the current status.
 ```go
 import (
+	"context"
     "github.com/rvinnie/yookassa-sdk-go/yookassa"
-    "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+    yoopayment "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -122,7 +125,7 @@ func main() {
     // Create a payment handler
     paymentHandler := yookassa.NewPaymentHandler(yooclient)
     // Create a payment
-    payment, _ := paymentHandler.CreatePayment(&yoopayment.Payment{
+    payment, _ := paymentHandler.CreatePayment(context.Background(), &yoopayment.Payment{
         Amount: &yoopayment.Amount{
             Value:    "1000.00",
             Currency: "RUB",
@@ -139,7 +142,7 @@ func main() {
     time.Sleep(time.Second * 30)
     
     // Cancel payment
-    payment, _ = paymentHandler.CancelPayment(payment.ID)
+    payment, _ = paymentHandler.CancelPayment(context.Background(), payment.ID)
 }
 ```
 [Learn more about confirming and canceling payments](https://yookassa.ru/developers/payments/payment-process?lang=en#capture-and-cancel)
@@ -157,7 +160,11 @@ The response to the request will contain the `Payment` object with the current s
 ```go
 package main
 
-import "github.com/rvinnie/yookassa-sdk-go/yookassa"
+import (
+	"context"
+
+	"github.com/rvinnie/yookassa-sdk-go/yookassa"
+)
 
 func main() {
 	// Create a yookassa client by specifying the store ID and secret key
@@ -165,7 +172,7 @@ func main() {
 	// Create a payment handler
 	paymentHandler := yookassa.NewPaymentHandler(yooclient)
 	// Getting payment information
-	p, _ := paymentHandler.FindPayment("21b23b5b-000f-5061-a000-0674e49a8c10")
+	p, _ := paymentHandler.FindPayment(context.Background(), "21b23b5b-000f-5061-a000-0674e49a8c10")
 }
 ```
 ---
@@ -187,8 +194,9 @@ with a `cursor` to the next fragment.
 package main
 
 import (
+	"context"
 	"github.com/rvinnie/yookassa-sdk-go/yookassa"
-	"github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
+	yoopayment "github.com/rvinnie/yookassa-sdk-go/yookassa/payment"
 )
 
 func main() {
@@ -200,7 +208,7 @@ func main() {
 	//  Get all 'succeeded' payments of 3 per request
 	var cursor string
 	for {
-		paymentsBatch, _ := paymentHandler.FindPayments(&yoopayment.PaymentListFilter{
+		paymentsBatch, _ := paymentHandler.FindPayments(context.Background(), &yoopayment.PaymentListFilter{
 			Limit:  3,
 			Cursor: cursor,
 			Status: yoopayment.Succeeded,

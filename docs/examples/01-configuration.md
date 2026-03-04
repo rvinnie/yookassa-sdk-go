@@ -10,10 +10,20 @@
 Для работы с API необходимо создать клиента, указав идентификатор магазина и секретный ключ.
 
 ```go
-import "github.com/rvinnie/yookassa-sdk-go/yookassa"
+import (
+    "net/http"
+    "time"
+
+    "github.com/rvinnie/yookassa-sdk-go/yookassa"
+    yooopts "github.com/rvinnie/yookassa-sdk-go/yookassa/opts"
+)
 
 func main() {
-    client := yookassa.NewClient('<Идентификатор магазина>', '<Секретный ключ>')	
+    client := yookassa.NewClient(
+        '<Идентификатор магазина>',
+        '<Секретный ключ>',
+        yooopts.WithHTTPClient(http.Client{Timeout: 30 * time.Second}),
+    )
 }
 ```
 
@@ -24,7 +34,11 @@ func main() {
 После установки конфигурации можно проверить корректность данных, а также получить информацию о магазине.
 
 ```go
-import "github.com/rvinnie/yookassa-sdk-go/yookassa"
+import (
+    "context"
+
+    "github.com/rvinnie/yookassa-sdk-go/yookassa"
+)
 
 func main() {
     // Создаем yookassa клиента, указав идентификатор магазина и секретный ключ
@@ -32,7 +46,7 @@ func main() {
     // Создаем обработчик настроек
     settingsHandler := yookassa.NewSettingsHandler(yooclient)
     // Получаем информацию о настройках магазина или шлюза
-    settings, _ := settingsHandler.GetAccountSettings(nil)
+    settings, _ := settingsHandler.GetAccountSettings(context.Background(), nil)
 }
 ```
 В результате мы увидим примерно следующее:

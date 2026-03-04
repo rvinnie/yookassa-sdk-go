@@ -3,41 +3,80 @@ package yookassa
 
 import (
 	"bytes"
+	"context"
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/google/uuid"
+	yooopts "github.com/rvinnie/yookassa-sdk-go/yookassa/opts"
 )
 
 const (
-	BaseURL = "https://api.yookassa.ru/v3/"
+	BaseURL              = "https://api.yookassa.ru/v3/"
+	defaultHTTPTimeout   = 30 * time.Second
+	maxResponseBodyBytes = 10 << 20 // 10 MiB
 )
+
+// HTTPDoer is an abstraction over http.Client used by SDK Client.
+type HTTPDoer interface {
+	Do(req *http.Request) (*http.Response, error)
+}
+
+// Requester is an abstraction used by handlers to perform API requests.
+type Requester interface {
+	MakeRequest(
+		ctx context.Context,
+		method string,
+		endpoint string,
+		body []byte,
+		params map[string]interface{},
+		idempotencyKey string,
+	) (*http.Response, error)
+}
 
 // Client works with YooMoney API.
 type Client struct {
-	client    http.Client
+	client    HTTPDoer
 	accountId string
 	secretKey string
 }
 
-func NewClient(accountId string, secretKey string) *Client {
+func NewClient(accountId string, secretKey string, options ...yooopts.Option) *Client {
+	config := yooopts.Config{}
+	for _, option := range options {
+		if option != nil {
+			option.Apply(&config)
+		}
+	}
+
+	httpClient := config.Client
+	if httpClient == nil {
+		httpClient = &http.Client{Timeout: defaultHTTPTimeout}
+	}
+
 	return &Client{
-		client:    http.Client{},
+		client:    httpClient,
 		accountId: accountId,
 		secretKey: secretKey,
 	}
 }
 
-func (c *Client) makeRequest(
+func (c *Client) MakeRequest(
+	ctx context.Context,
 	method string,
 	endpoint string,
 	body []byte,
 	params map[string]interface{},
 	idempotencyKey string,
 ) (*http.Response, error) {
+	if ctx == nil {
+		ctx = context.Background()
+	}
+
 	uri := fmt.Sprintf("%s%s", BaseURL, endpoint)
 
-	req, err := http.NewRequest(method, uri, bytes.NewBuffer(body))
+	req, err := http.NewRequestWithContext(ctx, method, uri, bytes.NewBuffer(body))
 	if err != nil {
 		return nil, err
 	}
