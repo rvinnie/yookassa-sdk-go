@@ -1,4 +1,4 @@
-[![Golang](https://img.shields.io/badge/Go-v1.19-EEEEEE?logo=go&logoColor=white&labelColor=00ADD8)](https://go.dev/)
+[![Golang](https://img.shields.io/badge/Go-v1.25-EEEEEE?logo=go&logoColor=white&labelColor=00ADD8)](https://go.dev/)
 [![License](https://img.shields.io/pypi/l/yookassa.svg)](LICENSE)
 
 <div align="center">
